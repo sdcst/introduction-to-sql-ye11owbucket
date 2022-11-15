@@ -17,7 +17,8 @@ We are going to create a new table in the database
 
 import sqlite3
 
-file = 'dbase.db'
+file = 'dbz.db'
+#file = 'dbase.db'
 connection = sqlite3.connect(file)
 print(connection)
 

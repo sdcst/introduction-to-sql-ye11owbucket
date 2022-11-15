@@ -9,6 +9,6 @@ for all of our database commands or queries.  You can print the connection
 to see the status of of the connection object and see if it was successful.
 """
 
-file = 'dbase.db'
+file = 'dbz.db'
 connection = sqlite3.connect(file)
 print(connection)

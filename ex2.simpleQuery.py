@@ -2,7 +2,7 @@
 
 import sqlite3
 
-file = 'dbase.db'
+file = 'dbz.db'
 connection = sqlite3.connect(file)
 print(connection)
 

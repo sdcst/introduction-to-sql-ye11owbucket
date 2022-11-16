@@ -23,24 +23,26 @@ You will need to create the table yourself. Consider what data types you will
 need to use.
 """
 import sqlite3
-file = 'dbz.db'
+file = 'dbase.db'
 connection = sqlite3.connect(file)
 print(connection)
 cursor = connection.cursor()
 query = """
-CREATE TABLE if not exists dbz.db.pet (
-    id integer primary key,
-    petname text,
-    petspecies text,
-    petbreed text,
-    ownername text,
-    ownerphonenumber text,
-    owneremail text,
-    ownerbalance text,
-    firstvisit text,
+create table if not exists pet (
+    id integer primary key autoincrement,
+    petname tinytext,
+    petspecies tinytext,
+    petbreed tinytext,
+    ownername tinytext,
+    ownerphonenumber tinytext,
+    owneremail tinytext,
+    ownerbalance tinytext,
+    firstvisit tinytext,
     cnum int);
 """
 cursor.execute(query)
+
+print(file)
 
 
 def GRAHHHH():

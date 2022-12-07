@@ -20,79 +20,70 @@ create table if not exists pet (
 cursor.execute(query)
 
 def addition():
-    petname = input("Enter pet name ")
-    petspecies = input("Enter scecies ")
-    petbreed = input("Enter breed")
-    ownername = input("Enter ownername")
-    ownerphonenumber = input("Enter phone nuber")
-    owneremail = input("Enter email")
-    ownerbalance = float(input("Enter moner"))
+    petname = input("Enter Pet Name: ")
+    petspecies = input("Enter Species ")
+    petbreed = input("Enter Breed: ")
+    ownername = input("Enter Owner Name: ")
+    ownerphonenumber = input("Enter Phone Number: ")
+    owneremail = input("Enter Email: ")
+    ownerbalance = float(input("Enter Balance: "))
     firstvisit = input("Enter time of first visit")
     list = [petname, petspecies, petbreed, ownername, ownerphonenumber, owneremail, ownerbalance, firstvisit]
-    query = f"insert into customers (petname, petspecies, petbreed, ownername, ownerphonenumber, owneremail, ownerbalance, firstvisit) values ('{list[0]}','{list[1]}','{list[2]}','{list[3]}','{list[4]}','{list[5]}','{list[6]}','{list[7]}')"
+    query = f"insert into pet (petname, petspecies, petbreed, ownername, ownerphonenumber, owneremail, ownerbalance, firstvisit) values ('{list[0]}','{list[1]}','{list[2]}','{list[3]}','{list[4]}','{list[5]}','{list[6]}','{list[7]}')"
     cursor = connection.cursor()
     cursor.execute(query)
     connection.commit()
 
-def readid():
-    x = input("Enter Id: ")
-    query = f'select * from customers where id={x}'
+def readid(x):
+    query = f'select * from pet where id={x}'
     cursor.execute(query)
     res = cursor.fetchall()
     print(res)
 
-def readname():
-    x = input("Enter Pet Name: ")
-    query = f'select * from customers where petname={x}'
+def readname(x):
+    query = f'select * from pet where petname={x}'
     cursor.execute(query)
     res = cursor.fetchall()
     print(res)
 
-def readspec():
-    x = input("Enter Species: ")
-    query = f'select * from customers where petspecies={x}'
+def readspec(x):
+    query = f'select * from pet where petspecies={x}'
     cursor.execute(query)
     res = cursor.fetchall()
     print(res)
 
-def readbreed():
-    x = input("Enter Breed: ")
-    query = f'select * from customers where petbreed={x}'
+def readbreed(x):
+    query = f'select * from pet where petbreed={x}'
     cursor.execute(query)
     res = cursor.fetchall()
     print(res)
 
-def readownname():
-    x = input("Enter Owner Name: ")
-    query = f'select * from customers where ownername={x}'
+def readownname(x):
+    query = f'select * from pet where ownername={x}'
     cursor.execute(query)
     res = cursor.fetchall()
     print(res)
 
-def readphone():
-    x = input("Enter Phone #: ")
-    query = f'select * from customers where ownerphonenumber={x}'
+def readphone(x):
+    query = f'select * from pet where ownerphonenumber={x}'
     cursor.execute(query)
     res = cursor.fetchall()
     print(res)
     
-def reademail():
-    x = input("Enter Email: ")
-    query = f'select * from customers where owneremail={x}'
+def reademail(x):
+    query = f'select * from pet where owneremail={x}'
     cursor.execute(query)
     res = cursor.fetchall()
     print(res)
 
-def readbal():
-    x = input("Enter Balance: ")
-    query = f'select * from customers where ownerbalance={x}'
+def readbal(x):
+    query = f'select * from pet where ownerbalance={x}'
     cursor.execute(query)
     res = cursor.fetchall()
     print(res)
 
-def readvisit():
-    x = input("Enter Date of First Visit: ")
-    query = f'select * from customers where firstvisit={x}'
+def readvisit(x):
+    query = f'select * from pet where firstvisit={x}'
     cursor.execute(query)
     res = cursor.fetchall()
     print(res)
@@ -104,13 +95,23 @@ def readvisit():
 
 for __name__ in "__main__":
     while True:
-        print("press 1 to add new customer\npress 2 to get customers info\npress anything else to exit")
+        print("press 1 to add new pet\npress 2 to get pet info\npress anything else to exit")
         y = input("Enter:")
         if y == '1':
             addition()
         if y == '2':
-            print("1 for email\n2 for id\n3 for phone number")
-            x = input("Enter: ")
+            print("1 for Pet Name\n2 for id\n3 for phone number")
+            x = str(input("Enter: "))
+            if x == '1':
+                i = input("Enter Pet Name: ")
+                readname(i)
+            if x == '2':
+                i = input("Enter Owner Name: ")
+                readownname(i)
+            if x == '3':
+                i = input("Enter Phone #: ")
+                readphone(i)
+
         else:
             exit()
 

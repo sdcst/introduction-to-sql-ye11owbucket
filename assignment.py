@@ -27,7 +27,7 @@ def addition():
     ownerphonenumber = input("Enter Phone Number: ")
     owneremail = input("Enter Email: ")
     ownerbalance = float(input("Enter Balance: "))
-    firstvisit = input("Enter time of first visit")
+    firstvisit = input("Enter time of first visit: ")
     list = [petname, petspecies, petbreed, ownername, ownerphonenumber, owneremail, ownerbalance, firstvisit]
     query = f"insert into pet (petname, petspecies, petbreed, ownername, ownerphonenumber, owneremail, ownerbalance, firstvisit) values ('{list[0]}','{list[1]}','{list[2]}','{list[3]}','{list[4]}','{list[5]}','{list[6]}','{list[7]}')"
     cursor = connection.cursor()
@@ -95,8 +95,10 @@ def readvisit(x):
 
 for __name__ in "__main__":
     while True:
-        print("press 1 to add new pet\npress 2 to get pet info\npress anything else to exit")
+        print("press 1 to add new pet\npress 2 to get pet info\npress 3 to exit")
         y = input("Enter:")
+        if y == '3':
+            exit()
         if y == '1':
             addition()
         if y == '2':
@@ -111,10 +113,6 @@ for __name__ in "__main__":
             if x == '3':
                 i = input("Enter Phone #: ")
                 readphone(i)
-
-        else:
-            exit()
-
 
     
 
